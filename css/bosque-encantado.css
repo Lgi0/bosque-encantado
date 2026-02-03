@@ -1,0 +1,335 @@
+/* Tema Bosque Encantado - Floresta Densa */
+:root {
+    --cor-bosque-escuro: #1a3a0f;
+    --cor-bosque-medio: #2d5016;
+    --cor-bosque-claro: #3d6b1f;
+    --cor-folhagem: #4a7c2e;
+    --cor-terra: #5d4037;
+    --cor-ceu: #263238;
+    --cor-magica: #ffb74d;
+    --cor-texto: #e8f5e9;
+    --cor-card: #1e3a1a;
+    --cor-card-hover: #2a4a26;
+}
+
+body {
+    background: linear-gradient(135deg, #1a3a0f 0%, #0d2008 50%, #0a1a06 100%);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--cor-texto);
+    position: relative;
+}
+
+    /* Efeito de névoa e folhas de fundo */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle at 20% 30%, rgba(77, 124, 46, 0.15) 2px, transparent 2px), radial-gradient(circle at 80% 70%, rgba(61, 107, 31, 0.15) 2px, transparent 2px), radial-gradient(circle at 50% 50%, rgba(26, 58, 15, 0.3) 1px, transparent 1px);
+        background-size: 80px 80px, 60px 60px, 40px 40px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* Névoa adicional */
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 26, 6, 0.4) 100%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+.bosque-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Mágico */
+.bosque-header {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, rgba(30, 58, 26, 0.95) 0%, rgba(26, 58, 15, 0.95) 100%);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(74, 124, 46, 0.3), 0 0 40px rgba(255, 183, 77, 0.2);
+    animation: aparecer 1s ease-out;
+    border: 2px solid rgba(74, 124, 46, 0.4);
+}
+
+.magical-border {
+    border: 3px solid var(--cor-folhagem);
+    border-radius: 20px;
+    padding: 20px;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 183, 77, 0.1) 50%, transparent 70%);
+    background-size: 200% 200%;
+    animation: brilho-magico 3s ease-in-out infinite;
+}
+
+.bosque-title {
+    font-size: 3rem;
+    color: var(--cor-magica);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 183, 77, 0.5), 0 0 40px rgba(255, 183, 77, 0.3);
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.bosque-subtitle {
+    font-size: 1.5rem;
+    color: var(--cor-folhagem);
+    font-style: italic;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Imagem Principal */
+.imagem-principal {
+    text-align: center;
+    margin: 40px 0;
+    animation: aparecer 1.5s ease-out;
+}
+
+.img-destaque {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 183, 77, 0.2);
+    border: 5px solid var(--cor-folhagem);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .img-destaque:hover {
+        transform: scale(1.02) rotate(1deg);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 183, 77, 0.4);
+    }
+
+/* Seção de Episódios */
+.episodios-section {
+    margin-top: 50px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--cor-magica);
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 183, 77, 0.4);
+    animation: aparecer 2s ease-out;
+}
+
+.leaf-decoration {
+    display: inline-block;
+    animation: balanco-folha 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 183, 77, 0.3));
+}
+
+/* Grid de Episódios */
+.episodios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.episodio-card {
+    background: linear-gradient(135deg, var(--cor-card) 0%, rgba(19, 46, 15, 0.95) 100%);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(74, 124, 46, 0.2), 0 0 20px rgba(255, 183, 77, 0.1);
+    border: 3px solid rgba(74, 124, 46, 0.5);
+    transition: all 0.3s ease;
+    animation: aparecer-card 0.6s ease-out backwards;
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Brilho interno nos cards */
+    .episodio-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 183, 77, 0.05) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .episodio-card:hover::before {
+        opacity: 1;
+    }
+
+    .episodio-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .episodio-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .episodio-card:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .episodio-card:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .episodio-card:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    .episodio-card:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+
+    .episodio-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 5px 15px rgba(255, 183, 77, 0.3), 0 0 30px rgba(255, 183, 77, 0.2);
+        border-color: var(--cor-magica);
+        background: linear-gradient(135deg, var(--cor-card-hover) 0%, rgba(25, 56, 20, 0.95) 100%);
+    }
+
+.episodio-titulo {
+    text-align: center;
+    color: var(--cor-magica);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: linear-gradient(90deg, transparent, rgba(74, 124, 46, 0.3), transparent);
+    border-radius: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 1;
+}
+
+/* Video Wrapper Responsivo */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 15px;
+    }
+
+/* Footer */
+.bosque-footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    background: linear-gradient(135deg, rgba(30, 58, 26, 0.9) 0%, rgba(26, 58, 15, 0.9) 100%);
+    border-radius: 20px;
+    border: 2px solid rgba(74, 124, 46, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 183, 77, 0.15);
+}
+
+    .bosque-footer p {
+        font-size: 1.2rem;
+        color: var(--cor-folhagem);
+        font-style: italic;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+/* Animações */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecer-card {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes brilho-magico {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes balanco-folha {
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .bosque-title {
+        font-size: 2rem;
+    }
+
+    .bosque-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .episodios-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .episodio-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bosque-title {
+        font-size: 1.5rem;
+    }
+
+    .bosque-container {
+        padding: 10px;
+    }
+}
